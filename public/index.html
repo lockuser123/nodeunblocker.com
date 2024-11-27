@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alley</title>
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -36,17 +35,15 @@
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .input-box i,
-    .input-box .button {
+    .input-box i {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .input-box i {
       left: 20px;
-      font-size: 30px;
-      color: #707070;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: url('search.svg') no-repeat center;
+      background-size: contain;
     }
 
     .input-box input {
@@ -56,12 +53,15 @@
       font-size: 18px;
       font-weight: 400;
       border: none;
-      padding: 0 155px 0 65px;
+      padding: 0 155px 0 60px; /* Adjusted padding for the image */
       background-color: transparent;
     }
 
     .input-box .button {
+      position: absolute;
+      top: 50%;
       right: 20px;
+      transform: translateY(-50%);
       font-size: 16px;
       font-weight: 400;
       color: #fff;
@@ -85,7 +85,8 @@
 
       .input-box i {
         left: 12px;
-        font-size: 25px;
+        width: 20px;
+        height: 20px;
       }
 
       .input-box input {
@@ -103,7 +104,7 @@
 
 <body>
   <form class="input-box" onsubmit="handleSearch(event)">
-    <i class="fas fa-search"></i>
+    <i></i>
     <input type="text" placeholder="Enter URL or Search Term" id="url" name="url">
     <button type="submit" class="button">Search</button>
   </form>
