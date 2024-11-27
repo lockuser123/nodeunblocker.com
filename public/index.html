@@ -1,151 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Node Unblocker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Header Font -->
+  <!-- Fonts -->
   <link href="//fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
-
-  <!-- Body Font -->
   <link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
-
-  <style type="text/css">
-    /* Fonts */
-    body {
-      font-family: 'Droid Sans', arial, serif;
-      letter-spacing: 1px;
+  <style>
+    /* Reset body margins */
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       overflow: hidden;
     }
 
+    /* Animated gradient background */
+    body {
+      color: white;
+      font-family: 'Droid Sans', arial, serif;
+      background: linear-gradient(120deg, #3275a8, #32a852);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s infinite ease-in-out;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Fonts for headings */
     h1 {
       font-family: 'Orbitron', arial, serif;
       letter-spacing: 2px;
+      text-align: center;
     }
 
-    h2, h3, h4, h5, h6 {
+    h3 {
       letter-spacing: 2px;
       font-weight: normal;
+      text-align: center;
     }
 
-    /* Animated Gradient Background */
-    body {
-  color: white;
-  background: linear-gradient(180deg, #3275a8, #32a852);
-  background-size: 200% 200%;
-  animation: gradientAnimation 10s infinite ease-in-out;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
-}
-
-
-    /* Hexagon Particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .hexagon {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      animation: float 15s infinite linear;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.8);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-20vh) scale(1.2);
-        opacity: 0;
-      }
-    }
-
-    /* Container */
+    /* Main container */
     .container {
-      position: relative;
-      z-index: 1;
-      width: 760px;
-      margin: 40px auto;
-      text-align: left;
-      max-width: calc(100% - 10px);
+      max-width: 800px;
+      margin: 20px auto;
+      background: rgba(63, 64, 56, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
 
+    /* Links */
+    a {
+      color: #62BECB;
+    }
+
+    a:hover {
+      color: #82DEEB;
+    }
+
+    /* Form input styles */
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #62BECB;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: #82DEEB;
+    }
+
+    /* Footer styles */
     .footer {
-      position: relative;
-      clear: both;
+      margin-top: 20px;
+      text-align: center;
     }
 
-    .footer p {
-      margin: 0;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      padding-left: 10px;
+    .footer a {
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
-  <div class="particles">
-    <!-- JavaScript will dynamically add hexagons here -->
+  <div class="container">
+    <h1>Node Unblocker</h1>
+    <form id="unblocker-form">
+      <p>
+        URL or Search:
+        <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
+        <input type="submit" value="Go">
+      </p>
+    </form>
+
+    <h3>About Node Unblocker</h3>
+    <p>Node Unblocker is a web proxy that helps users evade filters and access blocked websites.</p>
+    <p>It's designed to be fast and compatible, processing data on-the-fly rather than buffering the entire response.</p>
+    <p>Now compatible with YouTube! Watch videos through a custom page that streams the content.</p>
+    <p>Written in JavaScript with <a href="http://nodejs.org">Node.js</a>. The source code is <a href="https://github.com/nfriedly/node-unblocker">available on GitHub</a>.</p>
   </div>
 
-  <div class="container">
-    <div class="main">
-      <h1>Node Unblocker</h1>
-      <form action="no-js" method="get" id="unblocker-form">
-        <p>
-          URL or Search:
-          <input type="text" id="url" name="url" autofocus="autofocus" />
-          <input type="submit" value="Go" />
-        </p>
-      </form>
-      <h3>About Node Unblocker</h3>
-      <p>Node Unblocker is a web proxy, similar to CGIProxy, PHProxy, or Glype...</p>
-    </div>
-    <div class="footer">
-      <p><a href="https://github.com/nfriedly/node-unblocker">Node Unblocker</a> by <a href="http://www.nfriedly.com/">Nathan Friedly</a></p>
-    </div>
+  <div class="footer">
+    <p><a href="https://github.com/nfriedly/node-unblocker">Node Unblocker</a> by <a href="http://www.nfriedly.com/" title="Node.js developer and JavaScript Expert">Nathan Friedly</a></p>
   </div>
 
   <script>
-    const particlesContainer = document.querySelector('.particles');
-
-    // Generate hexagon particles
-    for (let i = 0; i < 50; i++) {
-      const hexagon = document.createElement('div');
-      hexagon.classList.add('hexagon');
-      hexagon.style.left = `${Math.random() * 100}vw`;
-      hexagon.style.animationDuration = `${10 + Math.random() * 10}s`;
-      hexagon.style.animationDelay = `${Math.random() * 5}s`;
-      particlesContainer.appendChild(hexagon);
-    }
+    // Form submission handling
+    document.getElementById('unblocker-form').onsubmit = function (event) {
+      event.preventDefault();
+      let url = document.getElementById('url').value;
+      if (!url.startsWith('http')) {
+        url = url.includes('.') && !url.includes(' ') ? 'https://' + url : 'https://google.com/search?q=' + encodeURIComponent(url);
+      }
+      window.location = '/proxy/' + url;
+    };
   </script>
 </body>
 
