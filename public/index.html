@@ -102,14 +102,15 @@
 </head>
 
 <body>
-  <div class="input-box">
+  <form class="input-box" onsubmit="handleSearch(event)">
     <i class="fas fa-search"></i>
     <input type="text" placeholder="Enter URL or Search Term" id="url" name="url">
-    <button class="button" onclick="handleSearch()">Search</button>
-  </div>
+    <button type="submit" class="button">Search</button>
+  </form>
 
   <script>
-    function handleSearch() {
+    function handleSearch(event) {
+      event.preventDefault();
       const urlField = document.getElementById('url');
       let url = urlField.value.trim();
       if (!url.startsWith('http')) {
