@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alley</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Font Awesome -->
   <style>
+    /* Existing styles remain unchanged */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
     * {
@@ -23,6 +22,21 @@
       justify-content: center;
       background: #4070f4;
       position: relative;
+    }
+
+    .settings-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    .settings-icon:hover {
+      transform: scale(1.1);
     }
 
     .input-box {
@@ -80,7 +94,6 @@
       transform: translateY(-50%) scale(0.98);
     }
 
-   
     @media screen and (max-width: 500px) {
       .input-box {
         height: 66px;
@@ -107,6 +120,7 @@
 </head>
 
 <body>
+  <i class="fas fa-cog settings-icon"></i> <!-- Settings Icon -->
 
   <form class="input-box" id="search-bar" onsubmit="handleSearch(event)">
     <i></i>
@@ -150,5 +164,3 @@
     }
   </script>
 </body>
-
-</html>
