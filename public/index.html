@@ -5,20 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alley</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
   <link href="//fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
   <style>
+    /* Reset body margins */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background: linear-gradient(120deg, #000000, #000000);
+    }
+
+    /* Animated gradient background */
+    body {
+      color: white;
+      font-family: 'Droid Sans', arial, serif;
+      background: linear-gradient(120deg, #3275a8, #32a852);
       background-size: 200% 200%;
       animation: gradientAnimation 10s infinite ease-in-out;
-      font-family: 'Inter', 'Orbitron', arial, sans-serif;
     }
 
     @keyframes gradientAnimation {
@@ -33,123 +38,53 @@
       }
     }
 
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .container {
+    /* Fonts for headings */
+    h1 {
+      font-family: 'Orbitron', arial, serif;
+      letter-spacing: 2px;
       text-align: center;
-      margin-top: 20%;
-      position: relative;
     }
 
-    .title {
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: white;
-      position: absolute;
-      top: -30px;
-      left: 8px;
+    h3 {
+      letter-spacing: 2px;
+      font-weight: normal;
+      text-align: center;
     }
 
+    /* Updated input field style */
     input[type="text"] {
-      width: 40%;
-      padding: 8px;
-      border: 1px solid rgba(30, 30, 30, 0.8);
-      background-color: rgba(50, 50, 50, 0.7);
-      border-radius: 15px;
+      width: 80%;
+      padding: 10px;
+      border: 1px solid rgba(50, 50, 50, 0.7); /* Dark grey, semi-transparent */
+      background-color: rgba(200, 200, 200, 0.5); /* Light grey, semi-transparent */
+      border-radius: 5px;
       margin-bottom: 10px;
       color: white;
-      transition: width 0.3s ease-in-out;
-      font-family: 'Inter', sans-serif;
-    }
-
-    input[type="text"]:focus {
-      outline: none;
-      width: 70%;
     }
 
     input[type="text"]::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.8); /* White, slightly transparent */
     }
   </style>
 </head>
 
 <body>
-  <canvas id="stars"></canvas>
-  <div class="container">
-    <div class="title">Alley</div>
-    <form id="unblocker-form">
-      <p>
-        <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
-      </p>
-    </form>
-  </div>
+  <form id="unblocker-form" style="text-align: center; margin-top: 20%;">
+    <p>
+      <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
+    </p>
+  </form>
 
   <script>
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const stars = [];
-    const mouse = { x: 0, y: 0 };
-
-    class Star {
-      constructor(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
+    // Form submission handling
+    document.getElementById('unblocker-form').onsubmit = function (event) {
+      event.preventDefault();
+      let url = document.getElementById('url').value;
+      if (!url.startsWith('http')) {
+        url = url.includes('.') && !url.includes(' ') ? 'https://' + url : 'https://google.com/search?q=' + encodeURIComponent(url);
       }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "white";
-        ctx.fill();
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.size *= 0.97;
-        if (this.size <= 0.1) {
-          const index = stars.indexOf(this);
-          stars.splice(index, 1);
-        }
-      }
-    }
-
-    function createStar(event) {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-      const size = Math.random() * 3 + 1;
-      const speedX = (Math.random() - 0.5) * 2;
-      const speedY = (Math.random() - 0.5) * 2;
-      stars.push(new Star(mouse.x, mouse.y, size, speedX, speedY));
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(star => {
-        star.update();
-        star.draw();
-      });
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('mousemove', createStar);
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    animate();
+      window.location = '/proxy/' + url;
+    };
   </script>
 </body>
 
