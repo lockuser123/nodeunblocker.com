@@ -1,11 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alley</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Existing styles remain unchanged */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
     * {
@@ -48,8 +50,8 @@
       margin: 0 20px;
       border-radius: 8px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      opacity: 1; /* Visible by default */
-      transform: scale(1); /* Default scale */
+      opacity: 1;
+      transform: scale(1);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -120,8 +122,12 @@
 </head>
 
 <body>
-  <i class="fas fa-cog settings-icon"></i> <!-- Settings Icon -->
+  <!-- Settings Icon -->
+  <a href="settings.html" class="settings-icon" title="Settings">
+    <i class="fas fa-cog"></i>
+  </a>
 
+  <!-- Search Bar -->
   <form class="input-box" id="search-bar" onsubmit="handleSearch(event)">
     <i></i>
     <input type="text" placeholder="Enter URL or Search Term" id="url" name="url">
@@ -134,12 +140,12 @@
     // Show search bar when Tab key is held for 1.5 seconds
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
-        e.preventDefault(); // Prevent default Tab behavior
+        e.preventDefault();
         if (!tabHoldTimeout) {
           tabHoldTimeout = setTimeout(() => {
             const searchBar = document.getElementById('search-bar');
-            searchBar.classList.add('show'); // Ensure it becomes visible if hidden
-          }, 1500); // 1.5 seconds
+            searchBar.classList.add('show');
+          }, 1500);
         }
       }
     });
@@ -164,3 +170,5 @@
     }
   </script>
 </body>
+
+</html>
