@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alley</title>
+  <title>Node</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -22,6 +22,7 @@
       align-items: center;
       justify-content: center;
       background: #4070f4;
+      position: relative;
     }
 
     .input-box {
@@ -79,6 +80,15 @@
       transform: translateY(-50%) scale(0.98);
     }
 
+    /* Image styles */
+    .settings-image {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px; /* Adjust size as needed */
+      height: auto;
+    }
+
     @media screen and (max-width: 500px) {
       .input-box {
         height: 66px;
@@ -105,6 +115,9 @@
 </head>
 
 <body>
+  <!-- Add the settings icon image -->
+  <img src="public/settings.svg" alt="Settings" class="settings-image">
+
   <form class="input-box" id="search-bar" onsubmit="handleSearch(event)">
     <i></i>
     <input type="text" placeholder="Enter URL or Search Term" id="url" name="url">
