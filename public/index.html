@@ -51,26 +51,6 @@
       text-align: center;
     }
 
-    /* Main container */
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: rgba(63, 64, 56, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Links */
-    a {
-      color: #62BECB;
-    }
-
-    a:hover {
-      color: #82DEEB;
-    }
-
     /* Form input styles */
     input[type="text"] {
       width: 80%;
@@ -106,18 +86,13 @@
 </head>
 
 <body>
-  <div class="container">
-    <form id="unblocker-form">
-      <p>
-        URL or Search:
-        <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
-        <input type="submit" value="Go">
-      </p>
-    </form>
-
-    
-
-  
+  <form id="unblocker-form" style="text-align: center; margin-top: 20%;">
+    <p>
+      URL or Search:
+      <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
+      <input type="submit" value="Go">
+    </p>
+  </form>
 
   <script>
     // Form submission handling
