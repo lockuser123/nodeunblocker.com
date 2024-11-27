@@ -49,6 +49,22 @@
       text-align: center;
     }
 
+    .container {
+      text-align: center;
+      margin-top: 20%;
+      position: relative;
+    }
+
+    .title {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      position: absolute;
+      top: -30px;
+      left: 8px;
+    }
+
     input[type="text"] {
       width: 40%;
       padding: 8px;
@@ -73,11 +89,14 @@
 </head>
 
 <body>
-  <form id="unblocker-form" style="text-align: center; margin-top: 20%;">
-    <p>
-      <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
-    </p>
-  </form>
+  <div class="container">
+    <div class="title">Alley</div>
+    <form id="unblocker-form">
+      <p>
+        <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
+      </p>
+    </form>
+  </div>
 
   <script>
     document.getElementById('unblocker-form').onsubmit = function (event) {
