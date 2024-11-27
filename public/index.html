@@ -51,36 +51,19 @@
       text-align: center;
     }
 
-    /* Form input styles */
+    /* Updated input field style */
     input[type="text"] {
       width: 80%;
       padding: 10px;
-      border: none;
+      border: 1px solid rgba(50, 50, 50, 0.7); /* Dark grey, semi-transparent */
+      background-color: rgba(200, 200, 200, 0.5); /* Light grey, semi-transparent */
       border-radius: 5px;
       margin-bottom: 10px;
-    }
-
-    input[type="submit"] {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background: #62BECB;
       color: white;
-      cursor: pointer;
     }
 
-    input[type="submit"]:hover {
-      background: #82DEEB;
-    }
-
-    /* Footer styles */
-    .footer {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .footer a {
-      text-decoration: none;
+    input[type="text"]::placeholder {
+      color: rgba(255, 255, 255, 0.8); /* White, slightly transparent */
     }
   </style>
 </head>
@@ -88,7 +71,6 @@
 <body>
   <form id="unblocker-form" style="text-align: center; margin-top: 20%;">
     <p>
-      
       <input type="text" id="url" name="url" autofocus="autofocus" placeholder="Enter URL or Search Term">
     </p>
   </form>
