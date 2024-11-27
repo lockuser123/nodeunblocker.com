@@ -33,23 +33,24 @@
 
     /* Animated Gradient Background */
     body {
-      color: white;
-      background: linear-gradient(120deg, #32a852, #3275a8);
-      background-size: 200% 200%;
-      animation: gradientAnimation 10s infinite ease-in-out;
-    }
+  color: white;
+  background: linear-gradient(180deg, #3275a8, #32a852);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s infinite ease-in-out;
+}
 
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+@keyframes gradientAnimation {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
 
     /* Hexagon Particles */
     .particles {
