@@ -95,15 +95,25 @@
       transform: translateY(-50%) scale(0.98);
     }
 
-    /* Circle with Google Logo */
+    /* Google Logo Link */
+    .google-logo-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+    }
+
     .google-logo-circle {
       width: 60px;
       height: 60px;
-      margin-top: 30px;
       border-radius: 50%;
       background: #fff url('https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg') no-repeat center;
       background-size: 50%;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .google-logo-circle:hover {
+      transform: scale(1.1);
     }
 
     /* Modal */
@@ -208,8 +218,10 @@
     <button type="submit" class="button">Search</button>
   </form>
 
-  <!-- Circle with Google Logo -->
-  <div class="google-logo-circle"></div>
+  <!-- Google Logo Circle -->
+  <a href="https://no3-two.vercel.app/proxy/https:/www.google.com/" target="_blank" class="google-logo-link">
+    <div class="google-logo-circle"></div>
+  </a>
 
   <script>
     function toggleSettings() {
