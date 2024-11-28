@@ -95,6 +95,17 @@
       transform: translateY(-50%) scale(0.98);
     }
 
+    /* Circle with Google Logo */
+    .google-logo-circle {
+      width: 60px;
+      height: 60px;
+      margin-top: 30px;
+      border-radius: 50%;
+      background: #fff url('https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg') no-repeat center;
+      background-size: 50%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
     /* Modal */
     .settings-modal {
       display: none;
@@ -164,6 +175,11 @@
         font-size: 14px;
         padding: 8px 18px;
       }
+
+      .google-logo-circle {
+        width: 50px;
+        height: 50px;
+      }
     }
   </style>
 </head>
@@ -191,6 +207,9 @@
     <input type="text" placeholder="Enter URL or Search Term" id="url" name="url">
     <button type="submit" class="button">Search</button>
   </form>
+
+  <!-- Circle with Google Logo -->
+  <div class="google-logo-circle"></div>
 
   <script>
     function toggleSettings() {
